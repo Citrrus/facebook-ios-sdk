@@ -44,7 +44,7 @@ static NSString* kAppId = nil;
 
   if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
     _permissions =  [[NSArray arrayWithObjects:
-                      @"read_stream", @"offline_access",nil] retain];
+                      @"read_stream", @"offline_access", @"publish_likes", nil] retain];
   }
 
   return self;
@@ -76,6 +76,7 @@ static NSString* kAppId = nil;
   [_uploadPhotoButton release];
   [_facebook release];
   [_permissions release];
+  [_likeButton dealloc];
   [super dealloc];
 }
 
@@ -140,7 +141,7 @@ static NSString* kAppId = nil;
   SBJSON *jsonWriter = [[SBJSON new] autorelease];
 
   NSDictionary* actionLinks = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:
-                               @"Always Running",@"text",@"http://itsti.me/",@"href", nil], nil];
+                                @"Always Running", @"text",@"http://itsti.me/",@"href", nil], nil];
 
   NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];
   NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -150,12 +151,12 @@ static NSString* kAppId = nil;
                                @"http://itsti.me/", @"href", nil];
   NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
   NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 @"Share on Facebook",  @"user_message_prompt",
-                                 actionLinksStr, @"action_links",
-                                 attachmentStr, @"attachment",
-                                 nil];
-
-
+                                  @"Share on Facebook",  @"user_message_prompt",
+                                  actionLinksStr, @"action_links",
+                                  attachmentStr, @"attachment",
+                                  nil];
+  
+  
   [_facebook dialog:@"feed"
           andParams:params
         andDelegate:self];
@@ -191,6 +192,7 @@ static NSString* kAppId = nil;
  * Called when the user has logged in successfully.
  */
 - (void)fbDidLogin {
+  NSLog(@"logged in");
   [self.label setText:@"logged in"];
   _getUserInfoButton.hidden = NO;
   _getPublicInfoButton.hidden = NO;
@@ -198,6 +200,21 @@ static NSString* kAppId = nil;
   _uploadPhotoButton.hidden = NO;
   _fbButton.isLoggedIn = YES;
   [_fbButton updateImage];
+  
+  if (_likeButton) {
+    [_likeButton setFacebook:_facebook];
+  } else {
+    _likeButton = [[FBLikeButton alloc]
+                   initWithFrame:CGRectNull
+                   facebook:_facebook
+                   href:@"http://developers.facebook.com/"
+                   delegate:self];
+    [self.view addSubview:_likeButton];
+    _likeButton.frame = CGRectMake(130, 300,
+                                   _likeButton.frame.size.width,
+                                   _likeButton.frame.size.height);
+  }
+  _likeButton.hidden = NO;
 }
 
 /**
@@ -213,15 +230,17 @@ static NSString* kAppId = nil;
 - (void)fbDidLogout {
   [self.label setText:@"Please log in"];
   _getUserInfoButton.hidden    = YES;
-  _getPublicInfoButton.hidden   = YES;
+  _getPublicInfoButton.hidden  = YES;
   _publishButton.hidden        = YES;
-  _uploadPhotoButton.hidden = YES;
+  _uploadPhotoButton.hidden    = YES;
   _fbButton.isLoggedIn         = NO;
   [_fbButton updateImage];
+
+  _likeButton.hidden = YES;
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // FBRequestDelegate
 
 /**
@@ -232,16 +251,14 @@ static NSString* kAppId = nil;
  */
 - (void)request:(FBRequest *)request didReceiveResponse:(NSURLResponse *)response {
   NSLog(@"received response");
-}
+};
 
 /**
- * Called when a request returns and its response has been parsed into
- * an object. The resulting object may be a dictionary, an array, a string,
- * or a number, depending on the format of the API response. If you need access
- * to the raw response, use:
- *
- * (void)request:(FBRequest *)request
- *      didReceiveResponse:(NSURLResponse *)response
+ * Called when a request returns and its response has been parsed into an object.
+ * The resulting object may be a dictionary, an array, a string, or a number, depending
+ * on the format of the API response.
+ * If you need access to the raw response, use
+ * (void)request:(FBRequest *)request didReceiveResponse:(NSURLResponse *)response.
  */
 - (void)request:(FBRequest *)request didLoad:(id)result {
   if ([result isKindOfClass:[NSArray class]]) {
@@ -255,15 +272,14 @@ static NSString* kAppId = nil;
 };
 
 /**
- * Called when an error prevents the Facebook API request from completing
- * successfully.
+ * Called when an error prevents the Facebook API request from completing successfully.
  */
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
   [self.label setText:[error localizedDescription]];
 };
 
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // FBDialogDelegate
 
 /**
@@ -271,6 +287,32 @@ static NSString* kAppId = nil;
  */
 - (void)dialogDidComplete:(FBDialog *)dialog {
   [self.label setText:@"publish successfully"];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// FBLikeButtonDelegate
+
+- (void)likeButton:(FBLikeButton *)button didSucceedWithAction:(FBLikeButtonAction)action {
+  if (action == FBLikeButtonActionLike) {
+    [self.label setText:@"like succeeded"];
+  } else if (action == FBLikeButtonActionUnlike) {
+    [self.label setText:@"unlike succeeded"];
+  }
+}
+
+- (void)likeButton:(FBLikeButton *)button didFailWithAction:(FBLikeButtonAction)action error:(NSError *)error {
+  if (action == FBLikeButtonActionLike) {
+    [self.label setText:@"like failed"];
+    NSLog(@"like failed: %@", error);
+  } else if (action == FBLikeButtonActionUnlike) {
+    [self.label setText:@"unlike failed"];
+    NSLog(@"unlike failed: %@", error);
+  } else if (action == FBLikeButtonActionSetup) {
+    [self.label setText:@"like button setup failed"];
+    NSLog(@"like button setup failed: %@", error);
+  } else {
+    NSLog(@"other error: %@", error); 
+  }
 }
 
 @end

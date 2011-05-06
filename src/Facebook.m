@@ -18,6 +18,9 @@
 #import "FBLoginDialog.h"
 #import "FBRequest.h"
 
+NSString* FBClientErrorDomain = @"facebookErrDomain.client";
+NSString* FBPlatformErrorDomain = @"facebookErrDomain";
+
 static NSString* kDialogBaseURL = @"https://m.facebook.com/dialog/";
 static NSString* kGraphBaseURL = @"https://graph.facebook.com/";
 static NSString* kRestserverBaseURL = @"https://api.facebook.com/method/";

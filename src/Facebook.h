@@ -17,6 +17,16 @@
 #import "FBLoginDialog.h"
 #import "FBRequest.h"
 
+extern NSString* FBClientErrorDomain;
+extern NSString* FBPlatformErrorDomain;
+
+typedef enum _FBClientError {
+  FBClientErrorLikeButtonFailedActivation = 1001,
+  FBClientErrorLikeButtonFailedLike,
+  FBClientErrorLikeButtonFailedUnlike,
+  FBClientErrorLikeButtonUnknownRequest
+} FBClientError;
+
 @protocol FBSessionDelegate;
 
 /**
