@@ -78,6 +78,8 @@
  */
 
 - (void) showLoggedIn {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
     self.backgroundImageView.hidden = YES;
     loginButton.hidden = YES;
     self.menuTableView.hidden = NO;
@@ -90,6 +92,7 @@
  */
 
 - (void) showLoggedOut:(BOOL)clearInfo {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     // Remove saved authorization information if it exists and it is
     // ok to clear it (logout, session invalid, app unauthorized)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -154,9 +157,15 @@
 }
 
 #pragma mark - View lifecycle
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
+// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)loadView
 {
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen 
+                                                  mainScreen].applicationFrame]; 
+    [view setBackgroundColor:[UIColor whiteColor]]; 
+    self.view = view; 
+    [view release]; 
+
     // Initialize permissions
     permissions = [[NSArray alloc] initWithObjects:
                    @"read_stream", 
@@ -174,7 +183,7 @@
     // Set up the view programmatically
     self.view.backgroundColor = [UIColor whiteColor];
     
-    //self.navigationItem.title = @"Getting Started";
+    self.navigationItem.title = @"Getting Started";
     
     self.navigationItem.backBarButtonItem =
     [[[UIBarButtonItem alloc] initWithTitle:@"Back"
@@ -183,10 +192,8 @@
                                      action:nil] autorelease];
     
     // Background Image
-    CGFloat yBackgroundImageViewOffset = -self.navigationController.navigationBar.frame.size.height;
     backgroundImageView = [[UIImageView alloc] 
-                          initWithFrame:CGRectMake(0, 
-                                                   yBackgroundImageViewOffset, 
+                          initWithFrame:CGRectMake(0,0, 
                                                    self.view.bounds.size.width, 
                                                    self.view.bounds.size.height)];
     [backgroundImageView setImage:[UIImage imageNamed:@"Default.png"]];
@@ -196,7 +203,7 @@
     // Login Button
     loginButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     CGFloat xLoginButtonOffset = self.view.center.x - (318/2);
-    CGFloat yLoginButtonOffset = self.view.bounds.size.height - (self.navigationController.navigationBar.frame.size.height + 58 + 13);
+    CGFloat yLoginButtonOffset = self.view.bounds.size.height - (58 + 13);
     loginButton.frame = CGRectMake(xLoginButtonOffset,yLoginButtonOffset,318,58);
     [loginButton addTarget:self
                     action:@selector(login)
@@ -252,7 +259,9 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    //[self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    
     GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
     // Check and retrieve authorization information
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -267,6 +276,12 @@
         [self showLoggedIn];
     }
     
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

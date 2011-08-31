@@ -38,17 +38,12 @@
 
 - (id)initWithIndex:(NSUInteger)index
 {
-    self = [super initWithNibName:@"ChildViewController" bundle:nil];
+    self = [super init];
     if (self) {
         childIndex = index;
         savedAPIResult = [[NSMutableArray alloc] initWithCapacity:1];
     }
     return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    return [self initWithIndex:0];
 }
 
 - (void)dealloc
@@ -80,8 +75,14 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (void)loadView
 {
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen 
+                                                  mainScreen].applicationFrame]; 
+    [view setBackgroundColor:[UIColor whiteColor]]; 
+    self.view = view; 
+    [view release]; 
+    
     GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     NSDictionary *apiData = [[[delegate apiData] apiConfigData] objectAtIndex:childIndex];
     self.navigationItem.title = [apiData objectForKey:@"title"];

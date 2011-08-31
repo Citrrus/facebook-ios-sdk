@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3018B43A13F9B94D00F61944 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3018B43813F9B94D00F61944 /* MainWindow-iPad.xib */; };
-		3071502C13FC6450003CB26E /* RootViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3071502B13FC6450003CB26E /* RootViewController~ipad.xib */; };
-		3071502F13FC64A0003CB26E /* ChildViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3071502E13FC649F003CB26E /* ChildViewController~ipad.xib */; };
-		3071503113FC64BF003CB26E /* DetailViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3071503013FC64BE003CB26E /* DetailViewController~ipad.xib */; };
 		30EA735E13F5D21B003DC0D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EA735D13F5D21B003DC0D2 /* UIKit.framework */; };
 		30EA736013F5D21B003DC0D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EA735F13F5D21B003DC0D2 /* Foundation.framework */; };
 		30EA736213F5D21B003DC0D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EA736113F5D21B003DC0D2 /* CoreGraphics.framework */; };
@@ -19,13 +16,10 @@
 		30EA736E13F5D21B003DC0D2 /* GettingStartedAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA736D13F5D21B003DC0D2 /* GettingStartedAppDelegate.m */; };
 		30EA737113F5D21B003DC0D2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EA736F13F5D21B003DC0D2 /* MainWindow.xib */; };
 		30EA737413F5D21B003DC0D2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA737313F5D21B003DC0D2 /* RootViewController.m */; };
-		30EA737713F5D21B003DC0D2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EA737513F5D21B003DC0D2 /* RootViewController.xib */; };
 		30EA739813F5D372003DC0D2 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA738E13F5D372003DC0D2 /* ChildViewController.m */; };
-		30EA739913F5D372003DC0D2 /* ChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EA738F13F5D372003DC0D2 /* ChildViewController.xib */; };
 		30EA739A13F5D372003DC0D2 /* DataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA739113F5D372003DC0D2 /* DataSet.m */; };
 		30EA739B13F5D372003DC0D2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EA739213F5D372003DC0D2 /* Default.png */; };
 		30EA739C13F5D372003DC0D2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA739413F5D372003DC0D2 /* DetailViewController.m */; };
-		30EA739D13F5D372003DC0D2 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EA739513F5D372003DC0D2 /* DetailViewController.xib */; };
 		30EA739E13F5D372003DC0D2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EA739613F5D372003DC0D2 /* Icon.png */; };
 		30EA739F13F5D372003DC0D2 /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EA739713F5D372003DC0D2 /* MenuButton.png */; };
 		30EA73CB13F5D502003DC0D2 /* FBConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30EA73CA13F5D502003DC0D2 /* FBConnect.bundle */; };
@@ -46,9 +40,6 @@
 
 /* Begin PBXFileReference section */
 		3018B43913F9B94D00F61944 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
-		3071502B13FC6450003CB26E /* RootViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "RootViewController~ipad.xib"; sourceTree = "<group>"; };
-		3071502E13FC649F003CB26E /* ChildViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ChildViewController~ipad.xib"; sourceTree = "<group>"; };
-		3071503013FC64BE003CB26E /* DetailViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "DetailViewController~ipad.xib"; sourceTree = "<group>"; };
 		30EA735913F5D21B003DC0D2 /* GettingStarted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GettingStarted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EA735D13F5D21B003DC0D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		30EA735F13F5D21B003DC0D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,16 +53,13 @@
 		30EA737013F5D21B003DC0D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		30EA737213F5D21B003DC0D2 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		30EA737313F5D21B003DC0D2 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		30EA737613F5D21B003DC0D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		30EA738D13F5D372003DC0D2 /* ChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
 		30EA738E13F5D372003DC0D2 /* ChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
-		30EA738F13F5D372003DC0D2 /* ChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildViewController.xib; sourceTree = "<group>"; };
 		30EA739013F5D372003DC0D2 /* DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSet.h; sourceTree = "<group>"; };
 		30EA739113F5D372003DC0D2 /* DataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSet.m; sourceTree = "<group>"; };
 		30EA739213F5D372003DC0D2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		30EA739313F5D372003DC0D2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		30EA739413F5D372003DC0D2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		30EA739513F5D372003DC0D2 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		30EA739613F5D372003DC0D2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		30EA739713F5D372003DC0D2 /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
 		30EA73CA13F5D502003DC0D2 /* FBConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBConnect.bundle; path = ../FBConnect.bundle; sourceTree = "<group>"; };
@@ -165,16 +153,10 @@
 				30EA736F13F5D21B003DC0D2 /* MainWindow.xib */,
 				30EA737213F5D21B003DC0D2 /* RootViewController.h */,
 				30EA737313F5D21B003DC0D2 /* RootViewController.m */,
-				30EA737513F5D21B003DC0D2 /* RootViewController.xib */,
-				3071502B13FC6450003CB26E /* RootViewController~ipad.xib */,
 				30EA738D13F5D372003DC0D2 /* ChildViewController.h */,
 				30EA738E13F5D372003DC0D2 /* ChildViewController.m */,
-				30EA738F13F5D372003DC0D2 /* ChildViewController.xib */,
-				3071502E13FC649F003CB26E /* ChildViewController~ipad.xib */,
 				30EA739313F5D372003DC0D2 /* DetailViewController.h */,
 				30EA739413F5D372003DC0D2 /* DetailViewController.m */,
-				30EA739513F5D372003DC0D2 /* DetailViewController.xib */,
-				3071503013FC64BE003CB26E /* DetailViewController~ipad.xib */,
 				30EA739013F5D372003DC0D2 /* DataSet.h */,
 				30EA739113F5D372003DC0D2 /* DataSet.m */,
 				30EA736413F5D21B003DC0D2 /* Supporting Files */,
@@ -289,18 +271,12 @@
 			files = (
 				30EA736813F5D21B003DC0D2 /* InfoPlist.strings in Resources */,
 				30EA737113F5D21B003DC0D2 /* MainWindow.xib in Resources */,
-				30EA737713F5D21B003DC0D2 /* RootViewController.xib in Resources */,
-				30EA739913F5D372003DC0D2 /* ChildViewController.xib in Resources */,
 				30EA739B13F5D372003DC0D2 /* Default.png in Resources */,
-				30EA739D13F5D372003DC0D2 /* DetailViewController.xib in Resources */,
 				30EA739E13F5D372003DC0D2 /* Icon.png in Resources */,
 				30EA739F13F5D372003DC0D2 /* MenuButton.png in Resources */,
 				30EA73CB13F5D502003DC0D2 /* FBConnect.bundle in Resources */,
 				30EA73E813F5D523003DC0D2 /* FBDialog.bundle in Resources */,
 				3018B43A13F9B94D00F61944 /* MainWindow-iPad.xib in Resources */,
-				3071502C13FC6450003CB26E /* RootViewController~ipad.xib in Resources */,
-				3071502F13FC64A0003CB26E /* ChildViewController~ipad.xib in Resources */,
-				3071503113FC64BF003CB26E /* DetailViewController~ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,14 +332,6 @@
 				30EA737013F5D21B003DC0D2 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		30EA737513F5D21B003DC0D2 /* RootViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30EA737613F5D21B003DC0D2 /* en */,
-			);
-			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

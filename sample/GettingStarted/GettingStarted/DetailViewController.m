@@ -26,7 +26,7 @@
 
 - (id)initWithTitle:(NSString *) title data:(NSArray *)data action:(NSString *)action
 {
-    self = [super initWithNibName:@"DetailViewController" bundle:nil];
+    self = [super init];
     if (self) {
         if (nil != data) {
             myData = [[NSMutableArray alloc] initWithArray:data copyItems:YES];
@@ -35,11 +35,6 @@
         self.myAction = [action retain];
     }
     return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    return [self initWithTitle:@"Details" data:nil action:@""];
 }
 
 - (void)dealloc
@@ -61,8 +56,14 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (void)loadView
 {
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen 
+                                                  mainScreen].applicationFrame]; 
+    [view setBackgroundColor:[UIColor whiteColor]]; 
+    self.view = view; 
+    [view release]; 
+    
     // Main Menu Table
     UITableView *myTableView = [[UITableView alloc] initWithFrame:self.view.bounds 
                                                             style:UITableViewStylePlain];

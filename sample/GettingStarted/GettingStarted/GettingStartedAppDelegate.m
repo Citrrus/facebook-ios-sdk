@@ -39,8 +39,19 @@ static NSString* kAppId = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Setup view controllers
+    RootViewController *rootViewController = [[RootViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    [navController.navigationBar setTintColor:[UIColor colorWithRed:0/255.0
+                                                              green:51.0/255.0
+                                                               blue:102.0/255.0 
+                                                              alpha:1.0]];
+    [navController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    self.navigationController = navController;
+    [rootViewController release];
+    [navController release];
+    
     // Initialize Facebook
-    RootViewController *rootViewController = (RootViewController *) self.navigationController.topViewController;
     facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:rootViewController];
     
     // Initialize API data (for views, etc.)
