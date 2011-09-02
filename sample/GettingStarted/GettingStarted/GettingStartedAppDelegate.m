@@ -87,6 +87,13 @@ static NSString* kAppId = nil;
     return [self.facebook handleOpenURL:url];
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSLog(@"URL: %@", url);
+    RootViewController *rootViewController = (RootViewController *) self.navigationController.topViewController;
+    facebook.sessionDelegate = rootViewController;
+    return [self.facebook handleOpenURL:url];
+}
+
 - (void)dealloc
 {
     [_window release];
