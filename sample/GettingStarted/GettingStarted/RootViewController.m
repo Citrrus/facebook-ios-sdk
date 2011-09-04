@@ -115,6 +115,11 @@
     self.menuTableView.hidden = YES;
     self.backgroundImageView.hidden = NO;
     loginButton.hidden = NO;
+    
+    // Clear personal info
+    nameLabel.text = @"";
+    // Get the profile image
+    [profilePhotoImageView setImage:nil];
 }
 
 /**

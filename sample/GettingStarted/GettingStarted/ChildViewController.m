@@ -1205,7 +1205,7 @@
  */
 -(void)fbDidNotLogin:(BOOL)cancelled {
     NSLog(@"did not login");
-    [self showMessage:@"You have to login to use the app."];
+    [self showMessage:@"Extended permissions not granted."];
 }
 
 /**
