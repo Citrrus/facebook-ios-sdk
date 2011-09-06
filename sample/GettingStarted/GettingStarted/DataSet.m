@@ -21,6 +21,10 @@
 
 @synthesize apiConfigData = _apiConfigData;
 
+/*
+ * This class that defines the UI data for the app. The main menu, sub menus, and 
+ methods each menu calls are defined here. 
+ */
 - (id) init {
     if ((self == [super init])) {
 

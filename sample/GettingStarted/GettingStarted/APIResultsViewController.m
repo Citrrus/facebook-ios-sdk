@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#import "DetailViewController.h"
+#import "APIResultsViewController.h"
 #import "GettingStartedAppDelegate.h"
 
-@implementation DetailViewController
+@implementation APIResultsViewController
 
 @synthesize myData;
 @synthesize myAction;

@@ -23,11 +23,11 @@ The app delegate class used for managing the application's window and navigation
 RootViewController.{h/m} -
 The root view controller used to set up the main menu and initial API calls to set the user context (basic information and permissions).
 
-ChildViewController.{h/m} -
+APICallsViewController.{h/m} -
 View controllers pushed from the root view controller. Used to handle each of the API sub-sections. Most of the Facebook API examples are contained here.
 
-DetailViewController.{h/m} -
-View controllers pushed from the child view controller. Handles mostly displaying API call results that are not simple confirmations. Also handles any post-result API calls, such as checking in from a list of nearby places.
+APIResultsViewController.{h/m} -
+View controllers pushed from the API calls view controller. Handles mostly displaying API call results that are not simple confirmations. Also handles any post-result API calls, such as checking in from a list of nearby places.
 
 DataSet.{h/m} -
 Class that defines the UI data for the app. The main menu, sub menus, and methods each menu calls are defined here. 

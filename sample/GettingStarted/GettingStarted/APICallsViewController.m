@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-#import "ChildViewController.h"
+#import "APICallsViewController.h"
 #import "GettingStartedAppDelegate.h"
 #import "FBConnect.h"
 #import "DataSet.h"
-#import "DetailViewController.h"
+#import "APIResultsViewController.h"
 
 // For re-using table cells
 #define TITLE_TAG 1001
 #define DESCRIPTION_TAG 1002
 
-@implementation ChildViewController
+@implementation APICallsViewController
 
 @synthesize apiTableView;
 @synthesize apiMenuItems;
@@ -273,7 +273,11 @@
  */
 - (void)apiButtonClicked:(id) sender
 {    
-    // Call the API method associated with this row selection
+    // Each menu button in the UITableViewController is initialized
+    // with a tag representing the table cell row. When the button
+    // is clicked the button is passed along in the sender object.
+    // From this object we can then read the tag property to determine
+    // which menu button was clicked.
     SEL selector = NSSelectorFromString([[apiMenuItems objectAtIndex:[sender tag]] objectForKey:@"method"]);
     if ([self respondsToSelector:selector]) {
         [self performSelector:selector];
@@ -1035,7 +1039,7 @@
                                          [result objectForKey:@"picture"], @"details", 
                                          nil], nil];
             // Show the basic user information in a new view controller
-            DetailViewController *controller = [[DetailViewController alloc] 
+            APIResultsViewController *controller = [[APIResultsViewController alloc] 
                                                 initWithTitle:@"Your Information" 
                                                 data:userData 
                                                 action:@""];
@@ -1053,7 +1057,7 @@
                 [friends addObject:[resultData objectAtIndex:i]];
             }
             // Show the friend information in a new view controller
-            DetailViewController *controller = [[DetailViewController alloc] 
+            APIResultsViewController *controller = [[APIResultsViewController alloc] 
                                                 initWithTitle:@"Friends" 
                                                 data:friends action:@""];
             [self.navigationController pushViewController:controller animated:YES];
@@ -1077,7 +1081,7 @@
                                    nil]];
             }
             // Show the user's recent check-ins a new view controller
-            DetailViewController *controller = [[DetailViewController alloc] 
+            APIResultsViewController *controller = [[APIResultsViewController alloc] 
                                                 initWithTitle:@"Recent Check-ins" 
                                                 data:places 
                                                 action:@"recentcheckins"];
@@ -1094,7 +1098,7 @@
                 [places addObject:[resultData objectAtIndex:i]];
             }
             // Show the places nearby in a new view controller
-            DetailViewController *controller = [[DetailViewController alloc] 
+            APIResultsViewController *controller = [[APIResultsViewController alloc] 
                                                 initWithTitle:@"Nearby" 
                                                 data:places 
                                                 action:@"places"];

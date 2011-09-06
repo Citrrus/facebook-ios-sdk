@@ -17,7 +17,7 @@
 #import "RootViewController.h"
 #import "GettingStartedAppDelegate.h"
 #import "FBConnect.h"
-#import "ChildViewController.h"
+#import "APICallsViewController.h"
 
 @implementation RootViewController
 
@@ -55,8 +55,11 @@
  * Make a Graph API Call to get information about the current logged in user.
  */
 - (void) apiFQLIMe {
+    // Using the "pic" picture since this currently has a maximum width of 100 pixels
+    // and since the minimum profile picture size is 180 pixels wide we should be able
+    // to get a 100 pixel wide version of the profile picture
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"SELECT uid, name, pic_small FROM user WHERE uid=me()", @"query",
+                                   @"SELECT uid, name, pic FROM user WHERE uid=me()", @"query",
                                    nil];
     GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
     [[delegate facebook] requestWithMethodName:@"fql.query"
@@ -155,7 +158,12 @@
  */
 - (void)menuButtonClicked:(id) sender
 {
-    ChildViewController *controller = [[ChildViewController alloc] 
+    // Each menu button in the UITableViewController is initialized
+    // with a tag representing the table cell row. When the button
+    // is clicked the button is passed along in the sender object.
+    // From this object we can then read the tag property to determine
+    // which menu button was clicked.
+    APICallsViewController *controller = [[APICallsViewController alloc] 
                                        initWithIndex:[sender tag]];
     [self.navigationController pushViewController:controller animated:YES];
     [controller release];
@@ -175,6 +183,7 @@
     permissions = [[NSArray alloc] initWithObjects:
                    @"read_stream", 
                    @"publish_stream", 
+                   @"offline_access",
                    nil];
     
     // Main menu items
@@ -406,8 +415,34 @@
         // display this.
         nameLabel.text = [result objectForKey:@"name"];
         // Get the profile image
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[result objectForKey:@"pic_small"]]]];
-        [profilePhotoImageView setImage:image];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[result objectForKey:@"pic"]]]];
+        
+        // Resize, crop the image to make sure it is square and renders
+        // well on Retina display
+        float ratio;
+        float delta;
+        float px = 100; // Double the pixels of the UIImageView (to render on Retina)
+        CGPoint offset;
+        CGSize size = image.size;
+        if (size.width > size.height) {
+            ratio = px / size.width;
+            delta = (ratio*size.width - ratio*size.height);
+            offset = CGPointMake(delta/2, 0);
+        } else {
+            ratio = px / size.height;
+            delta = (ratio*size.height - ratio*size.width);
+            offset = CGPointMake(0, delta/2);
+        }
+        CGRect clipRect = CGRectMake(-offset.x, -offset.y,
+                                     (ratio * size.width) + delta,
+                                     (ratio * size.height) + delta);
+        UIGraphicsBeginImageContext(CGSizeMake(px, px));
+        UIRectClip(clipRect);
+        [image drawInRect:clipRect];
+        UIImage *imgThumb =   UIGraphicsGetImageFromCurrentImageContext();
+        [imgThumb retain];
+        
+        [profilePhotoImageView setImage:imgThumb];
         [self apiGraphUserPermissions];
     } else {
         // Processing permissions information
@@ -422,13 +457,13 @@
  */
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
     NSLog(@"Err message: %@", [[error userInfo] objectForKey:@"error_msg"]);
-    NSString *errorMessage = [[error userInfo] objectForKey:@"error_msg"];
+    NSLog(@"Err code: %d", [error code]);
     
     // Show logged out state if:
     // 1. the app is no longer authorized
     // 2. the user logged out of Facebook from m.facebook.com or the Facebook app
-    if (([errorMessage rangeOfString:@"has not authorized application"].location != NSNotFound) ||
-        ([errorMessage rangeOfString:@"session is invalid because the user logged out"].location != NSNotFound)) {
+    // 3. the user has changed their password
+    if ([error code] == 190) {
         [self showLoggedOut:YES];
     }
 }
