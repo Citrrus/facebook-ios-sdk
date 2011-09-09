@@ -164,6 +164,10 @@ params   = _params;
                                  frame.origin.y + ceil(frame.size.height/2));
     
     CGFloat scale_factor = 1.0f;
+    if (FBIsDeviceIPad()) {
+        // On the iPad the dialog's dimensions should only be 60% of the screen's
+        scale_factor = 0.6f;
+    }
     
     CGFloat width = floor(scale_factor * frame.size.width) - kPadding * 2;
     CGFloat height = floor(scale_factor * frame.size.height) - kPadding * 2;
