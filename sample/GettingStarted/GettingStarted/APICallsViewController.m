@@ -19,6 +19,7 @@
 #import "FBConnect.h"
 #import "DataSet.h"
 #import "APIResultsViewController.h"
+#import "RootViewController.h"
 
 // For re-using table cells
 #define TITLE_TAG 1001
@@ -165,6 +166,11 @@
     
     // Pop to main view
     GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    RootViewController *rootViewController = (RootViewController *) [[self.navigationController viewControllers] objectAtIndex:0];
+    // Set the delegate to the main root view controller
+    // to ensure if an SSO request comes in this controller
+    // will handle it.
+    [delegate facebook].sessionDelegate = rootViewController;
     [[delegate navigationController] popToRootViewControllerAnimated:YES];
 }
 
