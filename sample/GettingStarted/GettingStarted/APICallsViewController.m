@@ -378,7 +378,7 @@
     NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];
     // Dialog parameters
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"I'm using the Getting Started Facebook iOS app", @"name",
+                                   @"I'm using the Hackbook for iOS app", @"name",
                                    @"Reference Documentation", @"caption",
                                    @"Dialogs provide a simple, consistent interface for applications to interact with users.", @"description",
                                    @"http://developers.facebook.com/docs/reference/dialogs/", @"link",
@@ -417,7 +417,7 @@
     // The "to" parameter targets the post to a friend
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    friendID, @"to",
-                                   @"I'm using the Getting Started Facebook iOS app", @"name",
+                                   @"I'm using the Hackbook for iOS app", @"name",
                                    @"Reference Documentation", @"caption",
                                    @"Dialogs provide a simple, consistent interface for applications to interact with users.", @"description",
                                    @"http://developers.facebook.com/docs/reference/dialogs/", @"link",
@@ -452,7 +452,7 @@
     
     NSString *giftStr = [jsonWriter stringWithObject:gift];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"Come learn how to make your iOS apps social.",  @"message",
+                                   @"invites you to learn how to make your iOS apps social.",  @"message",
                                    @"Check this out", @"notification_text",
                                    giftStr, @"data",
                                    nil];
@@ -484,7 +484,7 @@
     currentAPICall = kDialogRequestsSendToSelect;
     NSString *selectIDsStr = [selectIDs componentsJoinedByString:@","];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"Come learn how to make your iOS apps social.",  @"message",
+                                   @"invites you to learn how to make your iOS apps social.",  @"message",
                                    @"Check this out", @"notification_text",
                                    selectIDsStr, @"suggestions",
                                    nil];
@@ -503,7 +503,7 @@
     currentAPICall = kDialogRequestsSendToSelect;
     NSString *selectIDsStr = [selectIDs componentsJoinedByString:@","];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"It's your turn to visit the Getting Started iOS app.",  @"message",
+                                   @"It's your turn to visit the Hackbook for iOS app.",  @"message",
                                    selectIDsStr, @"suggestions",
                                    nil];
     
@@ -519,7 +519,7 @@
 - (void)apiDialogRequestsSendTarget:(NSString *)friend {
     currentAPICall = kDialogRequestsSendToTarget;
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"Come learn how to make your iOS apps social.",  @"message",
+                                   @"invites you to learn how to make your iOS apps social.",  @"message",
                                    friend, @"to",
                                    nil];
     
@@ -999,34 +999,51 @@
             } else if ([result isKindOfClass:[NSDecimalNumber class]]) {
                 friendsWithApp = [[NSMutableArray alloc] initWithObjects:[result stringValue], nil];
             }
-            [self apiDialogRequestsSendToUsers:friendsWithApp];
+            if ([friendsWithApp count] > 0) {
+                [self apiDialogRequestsSendToUsers:friendsWithApp];
+            } else {
+                [self showMessage:@"None of your friends are using the app."];
+            }
+            [friendsWithApp release];
             break;
         }
         case kAPIFriendsForDialogRequests:
         {
             NSArray *resultData = [result objectForKey:@"data"];
-            NSMutableArray *friendsWithoutApp = [[NSMutableArray alloc] initWithCapacity:1];
-            // Loop through friends and find those who do not have the app
-            for (NSDictionary *friendObject in resultData) {
-                BOOL foundFriend = NO;
-                for (NSString *friendWithApp in savedAPIResult) {
-                    if ([[friendObject objectForKey:@"id"] isEqualToString:friendWithApp]) {
-                        foundFriend = YES;
-                        break;
+            if ([resultData count] == 0) {
+                [self showMessage:@"You have no friends to select."];
+            } else {
+                NSMutableArray *friendsWithoutApp = [[NSMutableArray alloc] initWithCapacity:1];
+                // Loop through friends and find those who do not have the app
+                for (NSDictionary *friendObject in resultData) {
+                    BOOL foundFriend = NO;
+                    for (NSString *friendWithApp in savedAPIResult) {
+                        if ([[friendObject objectForKey:@"id"] isEqualToString:friendWithApp]) {
+                            foundFriend = YES;
+                            break;
+                        }
+                    }
+                    if (!foundFriend) {
+                        [friendsWithoutApp addObject:[friendObject objectForKey:@"id"]];
                     }
                 }
-                if (!foundFriend) {
-                    [friendsWithoutApp addObject:[friendObject objectForKey:@"id"]];
+                if ([friendsWithoutApp count] > 0) {
+                    [self apiDialogRequestsSendToNonUsers:friendsWithoutApp];
+                } else {
+                    [self showMessage:@"All your friends are using the app."];
                 }
+                [friendsWithoutApp release];
             }
-            [self apiDialogRequestsSendToNonUsers:friendsWithoutApp];
-            [friendsWithoutApp release];
             break;
         }
         case kAPIFriendsForTargetDialogRequests:
         {
             NSArray *resultData = [result objectForKey:@"data"];
-            [self apiDialogRequestsSendTarget:[[resultData objectAtIndex:0] objectForKey:@"id"]];
+            if ([resultData count] > 0) {
+                [self apiDialogRequestsSendTarget:[[resultData objectAtIndex:0] objectForKey:@"id"]];
+            } else {
+                [self showMessage:@"You have no friends to select."];
+            }
             break;
         }
         case kAPIGraphMe:
@@ -1053,15 +1070,19 @@
         {
             NSMutableArray *friends = [[NSMutableArray alloc] initWithCapacity:1];
             NSArray *resultData = [result objectForKey:@"data"];
-            for (NSUInteger i=0; i<[resultData count] && i < 25; i++) {
-                [friends addObject:[resultData objectAtIndex:i]];
+            if ([resultData count] > 0) {
+                for (NSUInteger i=0; i<[resultData count] && i < 25; i++) {
+                    [friends addObject:[resultData objectAtIndex:i]];
+                }
+                // Show the friend information in a new view controller
+                APIResultsViewController *controller = [[APIResultsViewController alloc] 
+                                                        initWithTitle:@"Friends" 
+                                                        data:friends action:@""];
+                [self.navigationController pushViewController:controller animated:YES];
+                [controller release];
+            } else {
+                [self showMessage:@"You have no friends."];
             }
-            // Show the friend information in a new view controller
-            APIResultsViewController *controller = [[APIResultsViewController alloc] 
-                                                initWithTitle:@"Friends" 
-                                                data:friends action:@""];
-            [self.navigationController pushViewController:controller animated:YES];
-            [controller release];
             [friends release];
             break;
         }

@@ -180,11 +180,7 @@
     [view release]; 
 
     // Initialize permissions
-    permissions = [[NSArray alloc] initWithObjects:
-                   @"read_stream", 
-                   @"publish_stream", 
-                   @"offline_access",
-                   nil];
+    permissions = [[NSArray alloc] initWithObjects:nil];
     
     // Main menu items
     mainMenuItems = [[NSMutableArray alloc] initWithCapacity:1];
@@ -197,7 +193,7 @@
     // Set up the view programmatically
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationItem.title = @"Getting Started";
+    self.navigationItem.title = @"Hackbook for iOS";
     
     self.navigationItem.backBarButtonItem =
     [[[UIBarButtonItem alloc] initWithTitle:@"Back"
