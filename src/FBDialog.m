@@ -26,7 +26,7 @@ static CGFloat kBorderBlack[4] = {0.3, 0.3, 0.3, 1};
 
 static CGFloat kTransitionDuration = 0.3;
 
-static CGFloat kPadding = 2;
+static CGFloat kPadding = 0;
 static CGFloat kBorderWidth = 10;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -298,6 +298,11 @@ params   = _params;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.contentMode = UIViewContentModeRedraw;
         
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(kPadding, kPadding, 480, 480)];
+        _webView.delegate = self;
+        _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:_webView];
+        
         UIImage* closeImage = [UIImage imageNamed:@"FBDialog.bundle/images/close.png"];
         
         UIColor* color = [UIColor colorWithRed:167.0/255 green:184.0/255 blue:216.0/255 alpha:1];
@@ -319,11 +324,6 @@ params   = _params;
         _closeButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin
         | UIViewAutoresizingFlexibleBottomMargin;
         [self addSubview:_closeButton];
-        
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(kPadding, kPadding, 480, 480)];
-        _webView.delegate = self;
-        _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self addSubview:_webView];
         
         _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
                     UIActivityIndicatorViewStyleWhiteLarge];
@@ -352,8 +352,7 @@ params   = _params;
 // UIView
 
 - (void)drawRect:(CGRect)rect {
-    CGRect grayRect = CGRectOffset(rect, -0.5, -0.5);
-    [self drawRect:grayRect fill:kBorderGray radius:10];
+    [self drawRect:rect fill:kBorderGray radius:0];
     
     CGRect webRect = CGRectMake(
                                 ceil(rect.origin.x + kBorderWidth), ceil(rect.origin.y + kBorderWidth)+1,
@@ -523,8 +522,8 @@ params   = _params;
     _closeButton.frame = CGRectMake(
                                     2,
                                     2,
-                                    kBorderWidth,
-                                    kBorderWidth);
+                                    29,
+                                    29);
     
     _webView.frame = CGRectMake(
                                 kBorderWidth+1,
