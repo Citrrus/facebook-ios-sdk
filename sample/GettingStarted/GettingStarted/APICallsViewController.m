@@ -380,17 +380,16 @@
     
     // The action links to be shown with the post in the feed
     NSArray* actionLinks = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                           @"Get Info",@"name",@"https://developers.facebook.com/docs/reference/dialogs/feed/",@"link", nil], nil];
+                                                           @"Get Started",@"name",@"http://m.facebook.com/apps/hackbookios/",@"link", nil], nil];
     NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];
     // Dialog parameters
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"I'm using the Hackbook for iOS app", @"name",
-                                   @"Reference Documentation", @"caption",
-                                   @"Dialogs provide a simple, consistent interface for applications to interact with users.", @"description",
+                                   @"Hackbook for iOS.", @"caption",
+                                   @"Check out Hackbook for iOS to learn how you can make your iOS apps social using Facebook Platform.", @"description",
                                    @"http://m.facebook.com/apps/hackbookios/", @"link",
-                                   @"http://fbrell.com/f8.jpg", @"picture",
+                                   @"http://www.mattwkelly.com/mwa/getting-started/img/facebook_icon_large.png", @"picture",
                                    actionLinksStr, @"actions",
-                                   @"Tell your friends about building social iOS apps.",  @"user_message_prompt",
                                    nil];
     
     GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
@@ -418,18 +417,17 @@
     SBJSON *jsonWriter = [[SBJSON new] autorelease];
     
     NSArray* actionLinks = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                           @"Get Info",@"name",@"https://developers.facebook.com/docs/reference/dialogs/feed/",@"link", nil], nil];
+                                                           @"Get Started",@"name",@"http://m.facebook.com/apps/hackbookios/",@"link", nil], nil];
     NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];
     // The "to" parameter targets the post to a friend
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    friendID, @"to",
                                    @"I'm using the Hackbook for iOS app", @"name",
-                                   @"Reference Documentation", @"caption",
-                                   @"Dialogs provide a simple, consistent interface for applications to interact with users.", @"description",
+                                   @"Hackbook for iOS.", @"caption",
+                                   @"Check out Hackbook for iOS to learn how you can make your iOS apps social using Facebook Platform.", @"description",
                                    @"http://m.facebook.com/apps/hackbookios/", @"link",
-                                   @"http://fbrell.com/f8.jpg", @"picture",
+                                   @"http://www.mattwkelly.com/mwa/getting-started/img/facebook_icon_large.png", @"picture",
                                    actionLinksStr, @"actions",
-                                   @"Tell your friends about building social iOS apps.",  @"user_message_prompt",
                                    nil];
     
     GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  

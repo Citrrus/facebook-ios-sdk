@@ -180,7 +180,7 @@
     [view release]; 
 
     // Initialize permissions
-    permissions = [[NSArray alloc] initWithObjects:nil];
+    permissions = [[NSArray alloc] initWithObjects:@"offline_access", nil];
     
     // Main menu items
     mainMenuItems = [[NSMutableArray alloc] initWithCapacity:1];
