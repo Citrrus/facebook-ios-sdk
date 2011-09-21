@@ -45,6 +45,8 @@ static NSString* kAppId = nil;
   if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
     _permissions =  [[NSArray arrayWithObjects:
                       @"read_stream", @"offline_access", @"publish_likes", nil] retain];
+    _facebook = [[Facebook alloc] initWithAppId:kAppId
+                                    andDelegate:self];
   }
 
   return self;
@@ -54,7 +56,6 @@ static NSString* kAppId = nil;
  * Set initial view
  */
 - (void)viewDidLoad {
-  _facebook = [[Facebook alloc] initWithAppId:kAppId];
   [self.label setText:@"Please log in"];
   _getUserInfoButton.hidden = YES;
   _getPublicInfoButton.hidden = YES;
@@ -87,7 +88,7 @@ static NSString* kAppId = nil;
  * Show the authorization dialog.
  */
 - (void)login {
-  [_facebook authorize:_permissions delegate:self];
+  [_facebook authorize:_permissions];
 }
 
 /**

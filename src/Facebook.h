@@ -52,13 +52,12 @@ typedef enum _FBClientError {
 @property(nonatomic, assign) id<FBSessionDelegate> sessionDelegate;
 @property(nonatomic, copy) NSString* localAppId;
 
-- (id)initWithAppId:(NSString *)app_id;
+- (id)initWithAppId:(NSString *)appId
+        andDelegate:(id<FBSessionDelegate>)delegate;
+
+- (void)authorize:(NSArray *)permissions;
 
 - (void)authorize:(NSArray *)permissions
-         delegate:(id<FBSessionDelegate>)delegate;
-
-- (void)authorize:(NSArray *)permissions
-         delegate:(id<FBSessionDelegate>)delegate
        localAppId:(NSString *)localAppId;
 
 - (BOOL)handleOpenURL:(NSURL *)url;
