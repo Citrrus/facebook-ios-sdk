@@ -23,8 +23,7 @@
 @interface DemoAppViewController : UIViewController
 <FBRequestDelegate,
 FBDialogDelegate,
-FBSessionDelegate,
-FBLikeButtonDelegate>{
+FBSessionDelegate>{
   IBOutlet UILabel* _label;
   IBOutlet FBLoginButton* _fbButton;
   IBOutlet UIButton* _getUserInfoButton;
@@ -32,13 +31,12 @@ FBLikeButtonDelegate>{
   IBOutlet UIButton* _publishButton;
   IBOutlet UIButton* _uploadPhotoButton;
   Facebook* _facebook;
-  FBLikeButton* _likeButton;
   NSArray* _permissions;
 }
 
 @property(nonatomic, retain) UILabel* label;
 
-@property(readonly) Facebook* facebook;
+@property(readonly) Facebook *facebook;
 
 -(IBAction)fbButtonClick:(id)sender;
 

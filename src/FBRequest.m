@@ -168,7 +168,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
  * Formulate the NSError
  */
 - (id)formError:(NSInteger)code userInfo:(NSDictionary *) errorData {
-   return [NSError errorWithDomain:FBPlatformErrorDomain code:code userInfo:errorData];
+   return [NSError errorWithDomain:@"facebookErrDomain" code:code userInfo:errorData];
 
 }
 
