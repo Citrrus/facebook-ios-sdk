@@ -36,6 +36,8 @@
 		30EA73F113F5D523003DC0D2 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73E413F5D523003DC0D2 /* SBJsonParser.m */; };
 		30EA73F213F5D523003DC0D2 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73E613F5D523003DC0D2 /* SBJsonWriter.m */; };
 		30EA73FC13F5D590003DC0D2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EA73FB13F5D590003DC0D2 /* CoreLocation.framework */; };
+		30ED588C14358F8A00A226C3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30ED588B14358F8A00A226C3 /* Default@2x.png */; };
+		30ED588F14358F9400A226C3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30ED588E14358F9400A226C3 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		30EA73E513F5D523003DC0D2 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		30EA73E613F5D523003DC0D2 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		30EA73FB13F5D590003DC0D2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		30ED588B14358F8A00A226C3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		30ED588E14358F9400A226C3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +164,6 @@
 				30EA739113F5D372003DC0D2 /* DataSet.m */,
 				30EA736413F5D21B003DC0D2 /* Supporting Files */,
 			);
-			name = Hackbook;
 			path = Hackbook;
 			sourceTree = "<group>";
 		};
@@ -168,7 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				30EA739213F5D372003DC0D2 /* Default.png */,
+				30ED588B14358F8A00A226C3 /* Default@2x.png */,
 				30EA739613F5D372003DC0D2 /* Icon.png */,
+				30ED588E14358F9400A226C3 /* Icon@2x.png */,
 				30EA739713F5D372003DC0D2 /* MenuButton.png */,
 				3085CC281415D68A00456CCC /* MenuButton@2x.png */,
 				30EA736513F5D21B003DC0D2 /* Hackbook-Info.plist */,
@@ -277,6 +282,8 @@
 				30EA73E813F5D523003DC0D2 /* FBDialog.bundle in Resources */,
 				3018B43A13F9B94D00F61944 /* MainWindow-iPad.xib in Resources */,
 				3085CC291415D68A00456CCC /* MenuButton@2x.png in Resources */,
+				30ED588C14358F8A00A226C3 /* Default@2x.png in Resources */,
+				30ED588F14358F9400A226C3 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
