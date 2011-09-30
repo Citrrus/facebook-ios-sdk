@@ -15,7 +15,7 @@
  */
 
 #import "RootViewController.h"
-#import "GettingStartedAppDelegate.h"
+#import "HackbookAppDelegate.h"
 #import "FBConnect.h"
 #import "APICallsViewController.h"
 
@@ -61,7 +61,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"SELECT uid, name, pic FROM user WHERE uid=me()", @"query",
                                    nil];
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     [[delegate facebook] requestWithMethodName:@"fql.query"
                           andParams:params
                       andHttpMethod:@"POST"
@@ -69,7 +69,7 @@
 }
 
 - (void) apiGraphUserPermissions {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     [[delegate facebook] requestWithGraphPath:@"me/permissions" andDelegate:self];
 }
 
@@ -106,7 +106,7 @@
         
         // Nil out the session variables to prevent
         // the app from thinking there is a valid session
-        GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+        HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
         if (nil != [[delegate facebook] accessToken]) {
             [delegate facebook].accessToken = nil;
         }
@@ -129,7 +129,7 @@
  * Show the authorization dialog.
  */
 - (void)login {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     // Check and retrieve authorization information
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] 
@@ -149,7 +149,7 @@
  * Invalidate the access token and clear the cookie.
  */
 - (void)logout {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     [[delegate facebook] logout:self];
 }
 
@@ -184,7 +184,7 @@
     
     // Main menu items
     mainMenuItems = [[NSMutableArray alloc] initWithCapacity:1];
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     NSArray *apiInfo = [[delegate apiData] apiConfigData];
     for (NSUInteger i=0; i < [apiInfo count]; i++) {
         [mainMenuItems addObject:[[apiInfo objectAtIndex:i] objectForKey:@"title"]];
@@ -272,7 +272,7 @@
     //[self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     // Check and retrieve authorization information
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] 
@@ -357,7 +357,7 @@
 - (void)fbDidLogin {
     [self showLoggedIn];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     
     // Save authorization information
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -442,7 +442,7 @@
         [self apiGraphUserPermissions];
     } else {
         // Processing permissions information
-        GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+        HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
         [delegate setUserPermissions:[[result objectForKey:@"data"] objectAtIndex:0]];
     }
 }

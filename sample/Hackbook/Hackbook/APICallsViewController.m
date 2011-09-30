@@ -15,7 +15,7 @@
  */
 
 #import "APICallsViewController.h"
-#import "GettingStartedAppDelegate.h"
+#import "HackbookAppDelegate.h"
 #import "FBConnect.h"
 #import "DataSet.h"
 #import "APIResultsViewController.h"
@@ -84,7 +84,7 @@
     self.view = view; 
     [view release]; 
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     NSDictionary *apiData = [[[delegate apiData] apiConfigData] objectAtIndex:childIndex];
     self.navigationItem.title = [apiData objectForKey:@"title"];
     apiMenuItems = [[NSArray arrayWithArray:[apiData objectForKey:@"menu"]] retain];
@@ -165,7 +165,7 @@
     [defaults synchronize];
     
     // Pop to main view
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     RootViewController *rootViewController = (RootViewController *) [[self.navigationController viewControllers] objectAtIndex:0];
     // Set the delegate to the main root view controller
     // to ensure if an SSO request comes in this controller
@@ -180,7 +180,7 @@
  */
 - (void) updateCheckinPermissions
 {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     [[delegate userPermissions] setObject:@"1" forKey:@"user_checkins"];
     [[delegate userPermissions] setObject:@"1" forKey:@"publish_checkins"];
 }
@@ -297,7 +297,7 @@
 - (void) apiGraphFriends {
     [self showActivityIndicator];
     // Do not set current API as this is commonly called by other methods
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     [[delegate facebook] requestWithGraphPath:@"me/friends" andDelegate:self];
 }
 
@@ -307,7 +307,7 @@
 - (void) apiGraphUserPermissions {
     [self showActivityIndicator];
     currentAPICall = kAPIGraphUserPermissions;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     [[delegate facebook] requestWithGraphPath:@"me/permissions" andDelegate:self];
 }
 
@@ -315,7 +315,7 @@
  * Dialog: Authorization to grant the app check-in permissions.
  */
 - (void) apiPromptCheckinPermissions {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     NSArray *checkinPermissions = [[NSArray alloc] initWithObjects:@"user_checkins", @"publish_checkins", nil];
     [delegate facebook].sessionDelegate = self;
     [[delegate facebook] authorize:checkinPermissions];
@@ -333,7 +333,7 @@
  */
 - (void)apiLogout {
     currentAPICall = kAPILogout;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     [[delegate facebook] logout:self];
 }
 
@@ -343,7 +343,7 @@
 - (void) apiGraphUserPermissionsDelete {
     [self showActivityIndicator];
     currentAPICall = kAPIGraphUserPermissionsDelete;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     // Passing empty (no) parameters unauthorizes the entire app. To revoke individual permissions
     // add a permission parameter with the name of the permission to revoke.
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
@@ -358,7 +358,7 @@
  */
 - (void)apiPromptExtendedPermissions {
     currentAPICall = kDialogPermissionsExtended;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     NSArray *extendedPermissions = [[NSArray alloc] initWithObjects:@"user_likes", nil];
     [delegate facebook].sessionDelegate = self;
     [[delegate facebook] authorize:extendedPermissions];
@@ -392,7 +392,7 @@
                                    actionLinksStr, @"actions",
                                    nil];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];  
     [[delegate facebook] dialog:@"feed"
             andParams:params
           andDelegate:self];
@@ -430,7 +430,7 @@
                                    actionLinksStr, @"actions",
                                    nil];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];  
     [[delegate facebook] dialog:@"feed"
                       andParams:params
                     andDelegate:self];
@@ -461,7 +461,7 @@
                                    giftStr, @"data",
                                    nil];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];  
     [[delegate facebook] dialog:@"apprequests"
                       andParams:params
                     andDelegate:self];
@@ -473,7 +473,7 @@
  */
 - (void) apiRESTGetAppUsers {
     [self showActivityIndicator];
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"friends.getAppUsers", @"method",
                                    nil];
@@ -493,7 +493,7 @@
                                    selectIDsStr, @"suggestions",
                                    nil];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];  
     [[delegate facebook] dialog:@"apprequests"
                       andParams:params
                     andDelegate:self];
@@ -511,7 +511,7 @@
                                    selectIDsStr, @"suggestions",
                                    nil];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];  
     [[delegate facebook] dialog:@"apprequests"
                       andParams:params
                     andDelegate:self];
@@ -527,7 +527,7 @@
                                    friend, @"to",
                                    nil];
     
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];  
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];  
     [[delegate facebook] dialog:@"apprequests"
                       andParams:params
                     andDelegate:self];
@@ -572,7 +572,7 @@
 - (void) apiGraphMe {
     [self showActivityIndicator];
     currentAPICall = kAPIGraphMe;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"name,picture",  @"fields",
                                    nil];
@@ -593,7 +593,7 @@
 - (void) apiGraphUserCheckins {
     [self showActivityIndicator];
     currentAPICall = kAPIGraphUserCheckins;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     [[delegate facebook] requestWithGraphPath:@"me/checkins" andDelegate:self];
 }
 
@@ -603,7 +603,7 @@
  * check-in permissions first or get the check-in information.
  */
 - (void) getPermissionsCallUserCheckins {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     if ([[delegate userPermissions] objectForKey:@"user_checkins"]) {
         [self apiGraphUserCheckins];
     } else {
@@ -622,7 +622,7 @@
     NSString *centerLocation = [[NSString alloc] initWithFormat:@"%f,%f", 
                                 location.coordinate.latitude, 
                                 location.coordinate.longitude]; 
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"place",  @"type",
                                    centerLocation, @"center",
@@ -673,7 +673,7 @@
  * for nearby places the user can then check-in to.
  */
 - (void) getPermissionsCallNearby {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     if ([[delegate userPermissions] objectForKey:@"publish_checkins"]) {
         [self getNearby];
     } else {
@@ -689,7 +689,7 @@
 - (void) apiGraphUserPhotosPost {
     [self showActivityIndicator];
     currentAPICall = kAPIGraphUserPhotosPost;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
 
     // Download a sample photo
     NSURL *url = [NSURL URLWithString:@"http://www.facebook.com/images/devsite/iphone_connect_btn.jpg"];
@@ -710,7 +710,7 @@
 - (void) apiGraphUserVideosPost {
     [self showActivityIndicator];
     currentAPICall = kAPIGraphUserVideosPost;
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate]; 
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate]; 
     
     // Download a sample video
     NSURL *url = [NSURL URLWithString:@"https://developers.facebook.com/attachment/sample.mov"];
@@ -956,7 +956,7 @@
         case kAPIGraphUserPermissionsDelete:
         {
             [self showMessage:@"User uninstalled app"];
-            GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+            HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
             // Nil out the session variables to prevent
             // the app from thinking there is a valid session
             [delegate facebook].accessToken = nil;
@@ -1189,7 +1189,7 @@
  * Called when the user has logged in successfully.
  */
 - (void)fbDidLogin {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     
     // Save updated authorization information
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

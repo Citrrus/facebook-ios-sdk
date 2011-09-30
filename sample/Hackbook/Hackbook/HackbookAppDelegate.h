@@ -18,7 +18,7 @@
 #import "FBConnect.h"
 #import "DataSet.h"
 
-@interface GettingStartedAppDelegate : NSObject <UIApplicationDelegate,UIAlertViewDelegate> {
+@interface HackbookAppDelegate : NSObject <UIApplicationDelegate,UIAlertViewDelegate> {
     Facebook *facebook;
     DataSet *apiData;
     NSMutableDictionary *userPermissions;

@@ -1,4 +1,4 @@
-### Getting Started (iOS) ###
+### Hackbook for iOS ###
 
 Demonstrates how to use the Facebook Platform to integrate your iOS app. This sample initially asks the user to log in to Facebook then provides the user with a sample set of Facebook API calls such as logging out, uninstalling the app, publishing news feeds, making app requests, etc.
 
@@ -11,13 +11,12 @@ iPhone OS 4.0 or later
 
 
 Using the Sample
-Install the Facebook iOS SDK. Save this sample file in the <iOS SDK>/sample directory. Launch the Accessory project using Xcode.
-
-To run in the simulator, set the Active SDK to Simulator. To run on a device, set the Active SDK to the appropriate Device setting. When launched, touch the entire row to make the accessory view appear checked, touch again to uncheck it. Then touch the actual accessory to the right to check and uncheck it as well.
+Install the Facebook iOS SDK.
+Launch the Hackbook project using Xcode from the <iOS SDK>/sample/Hackbook directory.
 
 
 Packaging List
-GettingStartedAppDelegate.{h/m} -
+HackbookAppDelegate.{h/m} -
 The app delegate class used for managing the application's window and navigation controller.
 
 RootViewController.{h/m} -

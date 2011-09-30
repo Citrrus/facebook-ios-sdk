@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "GettingStartedAppDelegate.h"
+#import "HackbookAppDelegate.h"
 #import "RootViewController.h"
 #import "DataSet.h"
 
@@ -24,7 +24,7 @@
 // scheme (substitue [app_id] for your real Facebook app id).
 static NSString* kAppId = @"210849718975311";
 
-@implementation GettingStartedAppDelegate
+@implementation HackbookAppDelegate
 
 
 @synthesize window=_window;

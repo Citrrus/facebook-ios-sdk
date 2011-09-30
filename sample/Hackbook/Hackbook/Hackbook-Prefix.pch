@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'GettingStarted' target in the 'GettingStarted' project
+// Prefix header for all source files of the 'Hackbook' target in the 'Hackbook' project
 //
 
 #import <Availability.h>

@@ -14,7 +14,7 @@
 		30EA736213F5D21B003DC0D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EA736113F5D21B003DC0D2 /* CoreGraphics.framework */; };
 		30EA736813F5D21B003DC0D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30EA736613F5D21B003DC0D2 /* InfoPlist.strings */; };
 		30EA736B13F5D21B003DC0D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA736A13F5D21B003DC0D2 /* main.m */; };
-		30EA736E13F5D21B003DC0D2 /* GettingStartedAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA736D13F5D21B003DC0D2 /* GettingStartedAppDelegate.m */; };
+		30EA736E13F5D21B003DC0D2 /* HackbookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA736D13F5D21B003DC0D2 /* HackbookAppDelegate.m */; };
 		30EA737113F5D21B003DC0D2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EA736F13F5D21B003DC0D2 /* MainWindow.xib */; };
 		30EA737413F5D21B003DC0D2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA737313F5D21B003DC0D2 /* RootViewController.m */; };
 		30EA739813F5D372003DC0D2 /* APICallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA738E13F5D372003DC0D2 /* APICallsViewController.m */; };
@@ -27,7 +27,6 @@
 		30EA73E713F5D523003DC0D2 /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73CE13F5D523003DC0D2 /* Facebook.m */; };
 		30EA73E813F5D523003DC0D2 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30EA73D013F5D523003DC0D2 /* FBDialog.bundle */; };
 		30EA73E913F5D523003DC0D2 /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73D213F5D523003DC0D2 /* FBDialog.m */; };
-		30EA73EA13F5D523003DC0D2 /* FBLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73D413F5D523003DC0D2 /* FBLikeButton.m */; };
 		30EA73EB13F5D523003DC0D2 /* FBLoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73D613F5D523003DC0D2 /* FBLoginDialog.m */; };
 		30EA73EC13F5D523003DC0D2 /* FBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73D813F5D523003DC0D2 /* FBRequest.m */; };
 		30EA73ED13F5D523003DC0D2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA73DC13F5D523003DC0D2 /* NSObject+SBJSON.m */; };
@@ -42,16 +41,16 @@
 /* Begin PBXFileReference section */
 		3018B43913F9B94D00F61944 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		3085CC281415D68A00456CCC /* MenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuButton@2x.png"; sourceTree = "<group>"; };
-		30EA735913F5D21B003DC0D2 /* GettingStarted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GettingStarted.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30EA735913F5D21B003DC0D2 /* Hackbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EA735D13F5D21B003DC0D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		30EA735F13F5D21B003DC0D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		30EA736113F5D21B003DC0D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		30EA736513F5D21B003DC0D2 /* GettingStarted-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GettingStarted-Info.plist"; sourceTree = "<group>"; };
+		30EA736513F5D21B003DC0D2 /* Hackbook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hackbook-Info.plist"; sourceTree = "<group>"; };
 		30EA736713F5D21B003DC0D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		30EA736913F5D21B003DC0D2 /* GettingStarted-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GettingStarted-Prefix.pch"; sourceTree = "<group>"; };
+		30EA736913F5D21B003DC0D2 /* Hackbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hackbook-Prefix.pch"; sourceTree = "<group>"; };
 		30EA736A13F5D21B003DC0D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		30EA736C13F5D21B003DC0D2 /* GettingStartedAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GettingStartedAppDelegate.h; sourceTree = "<group>"; };
-		30EA736D13F5D21B003DC0D2 /* GettingStartedAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GettingStartedAppDelegate.m; sourceTree = "<group>"; };
+		30EA736C13F5D21B003DC0D2 /* HackbookAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HackbookAppDelegate.h; sourceTree = "<group>"; };
+		30EA736D13F5D21B003DC0D2 /* HackbookAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackbookAppDelegate.m; sourceTree = "<group>"; };
 		30EA737013F5D21B003DC0D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		30EA737213F5D21B003DC0D2 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		30EA737313F5D21B003DC0D2 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
@@ -71,8 +70,6 @@
 		30EA73D013F5D523003DC0D2 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBDialog.bundle; path = ../../src/FBDialog.bundle; sourceTree = "<group>"; };
 		30EA73D113F5D523003DC0D2 /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBDialog.h; path = ../../src/FBDialog.h; sourceTree = "<group>"; };
 		30EA73D213F5D523003DC0D2 /* FBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBDialog.m; path = ../../src/FBDialog.m; sourceTree = "<group>"; };
-		30EA73D313F5D523003DC0D2 /* FBLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLikeButton.h; path = ../../src/FBLikeButton.h; sourceTree = "<group>"; };
-		30EA73D413F5D523003DC0D2 /* FBLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLikeButton.m; path = ../../src/FBLikeButton.m; sourceTree = "<group>"; };
 		30EA73D513F5D523003DC0D2 /* FBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLoginDialog.h; path = ../../src/FBLoginDialog.h; sourceTree = "<group>"; };
 		30EA73D613F5D523003DC0D2 /* FBLoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLoginDialog.m; path = ../../src/FBLoginDialog.m; sourceTree = "<group>"; };
 		30EA73D713F5D523003DC0D2 /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBRequest.h; path = ../../src/FBRequest.h; sourceTree = "<group>"; };
@@ -121,7 +118,7 @@
 			children = (
 				30EA73CC13F5D50D003DC0D2 /* FBConnect */,
 				30EA73CA13F5D502003DC0D2 /* FBConnect.bundle */,
-				30EA736313F5D21B003DC0D2 /* GettingStarted */,
+				30EA736313F5D21B003DC0D2 /* Hackbook */,
 				30EA735C13F5D21B003DC0D2 /* Frameworks */,
 				30EA735A13F5D21B003DC0D2 /* Products */,
 			);
@@ -130,7 +127,7 @@
 		30EA735A13F5D21B003DC0D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30EA735913F5D21B003DC0D2 /* GettingStarted.app */,
+				30EA735913F5D21B003DC0D2 /* Hackbook.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,12 +143,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		30EA736313F5D21B003DC0D2 /* GettingStarted */ = {
+		30EA736313F5D21B003DC0D2 /* Hackbook */ = {
 			isa = PBXGroup;
 			children = (
 				3018B43713F9B94B00F61944 /* iPad */,
-				30EA736C13F5D21B003DC0D2 /* GettingStartedAppDelegate.h */,
-				30EA736D13F5D21B003DC0D2 /* GettingStartedAppDelegate.m */,
+				30EA736C13F5D21B003DC0D2 /* HackbookAppDelegate.h */,
+				30EA736D13F5D21B003DC0D2 /* HackbookAppDelegate.m */,
 				30EA736F13F5D21B003DC0D2 /* MainWindow.xib */,
 				30EA737213F5D21B003DC0D2 /* RootViewController.h */,
 				30EA737313F5D21B003DC0D2 /* RootViewController.m */,
@@ -163,7 +160,8 @@
 				30EA739113F5D372003DC0D2 /* DataSet.m */,
 				30EA736413F5D21B003DC0D2 /* Supporting Files */,
 			);
-			path = GettingStarted;
+			name = Hackbook;
+			path = Hackbook;
 			sourceTree = "<group>";
 		};
 		30EA736413F5D21B003DC0D2 /* Supporting Files */ = {
@@ -173,9 +171,9 @@
 				30EA739613F5D372003DC0D2 /* Icon.png */,
 				30EA739713F5D372003DC0D2 /* MenuButton.png */,
 				3085CC281415D68A00456CCC /* MenuButton@2x.png */,
-				30EA736513F5D21B003DC0D2 /* GettingStarted-Info.plist */,
+				30EA736513F5D21B003DC0D2 /* Hackbook-Info.plist */,
 				30EA736613F5D21B003DC0D2 /* InfoPlist.strings */,
-				30EA736913F5D21B003DC0D2 /* GettingStarted-Prefix.pch */,
+				30EA736913F5D21B003DC0D2 /* Hackbook-Prefix.pch */,
 				30EA736A13F5D21B003DC0D2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -190,8 +188,6 @@
 				30EA73D013F5D523003DC0D2 /* FBDialog.bundle */,
 				30EA73D113F5D523003DC0D2 /* FBDialog.h */,
 				30EA73D213F5D523003DC0D2 /* FBDialog.m */,
-				30EA73D313F5D523003DC0D2 /* FBLikeButton.h */,
-				30EA73D413F5D523003DC0D2 /* FBLikeButton.m */,
 				30EA73D513F5D523003DC0D2 /* FBLoginDialog.h */,
 				30EA73D613F5D523003DC0D2 /* FBLoginDialog.m */,
 				30EA73D713F5D523003DC0D2 /* FBRequest.h */,
@@ -225,9 +221,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30EA735813F5D21B003DC0D2 /* GettingStarted */ = {
+		30EA735813F5D21B003DC0D2 /* Hackbook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30EA737A13F5D21B003DC0D2 /* Build configuration list for PBXNativeTarget "GettingStarted" */;
+			buildConfigurationList = 30EA737A13F5D21B003DC0D2 /* Build configuration list for PBXNativeTarget "Hackbook" */;
 			buildPhases = (
 				30EA735513F5D21B003DC0D2 /* Sources */,
 				30EA735613F5D21B003DC0D2 /* Frameworks */,
@@ -237,9 +233,9 @@
 			);
 			dependencies = (
 			);
-			name = GettingStarted;
-			productName = GettingStarted;
-			productReference = 30EA735913F5D21B003DC0D2 /* GettingStarted.app */;
+			name = Hackbook;
+			productName = Hackbook;
+			productReference = 30EA735913F5D21B003DC0D2 /* Hackbook.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -250,7 +246,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 30EA735313F5D21B003DC0D2 /* Build configuration list for PBXProject "GettingStarted" */;
+			buildConfigurationList = 30EA735313F5D21B003DC0D2 /* Build configuration list for PBXProject "Hackbook" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -262,7 +258,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30EA735813F5D21B003DC0D2 /* GettingStarted */,
+				30EA735813F5D21B003DC0D2 /* Hackbook */,
 			);
 		};
 /* End PBXProject section */
@@ -292,14 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				30EA736B13F5D21B003DC0D2 /* main.m in Sources */,
-				30EA736E13F5D21B003DC0D2 /* GettingStartedAppDelegate.m in Sources */,
+				30EA736E13F5D21B003DC0D2 /* HackbookAppDelegate.m in Sources */,
 				30EA737413F5D21B003DC0D2 /* RootViewController.m in Sources */,
 				30EA739813F5D372003DC0D2 /* APICallsViewController.m in Sources */,
 				30EA739A13F5D372003DC0D2 /* DataSet.m in Sources */,
 				30EA739C13F5D372003DC0D2 /* APIResultsViewController.m in Sources */,
 				30EA73E713F5D523003DC0D2 /* Facebook.m in Sources */,
 				30EA73E913F5D523003DC0D2 /* FBDialog.m in Sources */,
-				30EA73EA13F5D523003DC0D2 /* FBLikeButton.m in Sources */,
 				30EA73EB13F5D523003DC0D2 /* FBLoginDialog.m in Sources */,
 				30EA73EC13F5D523003DC0D2 /* FBRequest.m in Sources */,
 				30EA73ED13F5D523003DC0D2 /* NSObject+SBJSON.m in Sources */,
@@ -380,10 +375,10 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GettingStarted/GettingStarted-Prefix.pch";
-				INFOPLIST_FILE = "GettingStarted/GettingStarted-Info.plist";
+				GCC_PREFIX_HEADER = "Hackbook/Hackbook-Prefix.pch";
+				INFOPLIST_FILE = "Hackbook/Hackbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hackbook;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -395,10 +390,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GettingStarted/GettingStarted-Prefix.pch";
-				INFOPLIST_FILE = "GettingStarted/GettingStarted-Info.plist";
+				GCC_PREFIX_HEADER = "Hackbook/Hackbook-Prefix.pch";
+				INFOPLIST_FILE = "Hackbook/Hackbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hackbook;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -408,7 +403,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30EA735313F5D21B003DC0D2 /* Build configuration list for PBXProject "GettingStarted" */ = {
+		30EA735313F5D21B003DC0D2 /* Build configuration list for PBXProject "Hackbook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30EA737813F5D21B003DC0D2 /* Debug */,
@@ -417,7 +412,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30EA737A13F5D21B003DC0D2 /* Build configuration list for PBXNativeTarget "GettingStarted" */ = {
+		30EA737A13F5D21B003DC0D2 /* Build configuration list for PBXNativeTarget "Hackbook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30EA737B13F5D21B003DC0D2 /* Debug */,

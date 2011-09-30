@@ -15,7 +15,7 @@
  */
 
 #import "APIResultsViewController.h"
-#import "GettingStartedAppDelegate.h"
+#import "HackbookAppDelegate.h"
 
 @implementation APIResultsViewController
 
@@ -128,7 +128,7 @@
  * Graph API: Check in a user to the location selected in the previous view.
  */
 - (void) apiGraphUserCheckins:(NSUInteger)index {
-    GettingStartedAppDelegate *delegate = (GettingStartedAppDelegate *) [[UIApplication sharedApplication] delegate];
+    HackbookAppDelegate *delegate = (HackbookAppDelegate *) [[UIApplication sharedApplication] delegate];
     SBJSON *jsonWriter = [[SBJSON new] autorelease];
     
     NSDictionary *coordinates = [NSDictionary dictionaryWithObjectsAndKeys:
