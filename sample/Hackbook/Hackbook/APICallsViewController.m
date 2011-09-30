@@ -456,7 +456,7 @@
     
     NSString *giftStr = [jsonWriter stringWithObject:gift];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"invites you to learn how to make your iOS apps social.",  @"message",
+                                   @"Learn how to make your iOS apps social.",  @"message",
                                    @"Check this out", @"notification_text",
                                    giftStr, @"data",
                                    nil];
@@ -488,7 +488,7 @@
     currentAPICall = kDialogRequestsSendToSelect;
     NSString *selectIDsStr = [selectIDs componentsJoinedByString:@","];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"invites you to learn how to make your iOS apps social.",  @"message",
+                                   @"Learn how to make your iOS apps social.",  @"message",
                                    @"Check this out", @"notification_text",
                                    selectIDsStr, @"suggestions",
                                    nil];
@@ -523,7 +523,7 @@
 - (void)apiDialogRequestsSendTarget:(NSString *)friend {
     currentAPICall = kDialogRequestsSendToTarget;
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"invites you to learn how to make your iOS apps social.",  @"message",
+                                   @"Learn how to make your iOS apps social.",  @"message",
                                    friend, @"to",
                                    nil];
     
