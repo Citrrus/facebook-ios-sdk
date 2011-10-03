@@ -388,7 +388,7 @@
                                    @"Hackbook for iOS.", @"caption",
                                    @"Check out Hackbook for iOS to learn how you can make your iOS apps social using Facebook Platform.", @"description",
                                    @"http://m.facebook.com/apps/hackbookios/", @"link",
-                                   @"http://www.mattwkelly.com/mwa/getting-started/img/facebook_icon_large.png", @"picture",
+                                   @"http://www.facebookmobileweb.com/hackbook/img/facebook_icon_large.png", @"picture",
                                    actionLinksStr, @"actions",
                                    nil];
     
@@ -426,7 +426,7 @@
                                    @"Hackbook for iOS.", @"caption",
                                    @"Check out Hackbook for iOS to learn how you can make your iOS apps social using Facebook Platform.", @"description",
                                    @"http://m.facebook.com/apps/hackbookios/", @"link",
-                                   @"http://www.mattwkelly.com/mwa/getting-started/img/facebook_icon_large.png", @"picture",
+                                   @"http://www.facebookmobileweb.com/hackbook/img/facebook_icon_large.png", @"picture",
                                    actionLinksStr, @"actions",
                                    nil];
     
