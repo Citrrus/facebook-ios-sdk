@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2007-2009 Stig Brautaset. All rights reserved.
+ Copyright (C) 2009 Stig Brautaset. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -27,29 +27,32 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSString+SBJSON.h"
-#import "SBJsonParser.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSString (NSString_SBJSON)
+/**
+ @brief Adds JSON parsing methods to NSString
+ 
+This is a category on NSString that adds methods for parsing the target string.
+*/
+@interface NSString (NSString_FBSBJson)
 
-- (id)JSONFragmentValue
-{
-    SBJsonParser *jsonParser = [SBJsonParser new];    
-    id repr = [jsonParser fragmentWithString:self];    
-    if (!repr)
-        NSLog(@"-JSONFragmentValue failed. Error trace is: %@", [jsonParser errorTrace]);
-    [jsonParser release];
-    return repr;
-}
 
-- (id)JSONValue
-{
-    SBJsonParser *jsonParser = [SBJsonParser new];
-    id repr = [jsonParser objectWithString:self];
-    if (!repr)
-        NSLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
-    [jsonParser release];
-    return repr;
-}
+/**
+ @brief Returns the object represented in the receiver, or nil on error. 
+ 
+ Returns a a scalar object represented by the string's JSON fragment representation.
+ 
+ @deprecated Given we bill ourselves as a "strict" JSON library, this method should be removed.
+ */
+- (id)JSONFragmentValue;
+
+/**
+ @brief Returns the NSDictionary or NSArray represented by the current string's JSON representation.
+ 
+ Returns the dictionary or array represented in the receiver, or nil on error.
+
+ Returns the NSDictionary or NSArray represented by the current string's JSON representation.
+ */
+- (id)JSONValue;
 
 @end
